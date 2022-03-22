@@ -9,17 +9,16 @@ import SwiftUI
 
 struct ListView: View {
     
-    @State var items: [String] = [
-    "Задача1",
-    "Задача2",
+    @State var items: [ItemModel] = [
+    ItemModel(title: "Задача", isCompleted: true)
     ]
     
     @State var isEditting: Bool = false
     
     var body: some View {
         List {
-            ForEach(items, id: \.self) { item in
-                TaskView(title: item)
+            ForEach(items) { item in
+                TaskView(item: item)
             }
         }
         .listStyle(.plain)

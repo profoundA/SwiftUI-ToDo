@@ -9,19 +9,30 @@ import SwiftUI
 
 struct TaskView: View {
     
-    let title: String
+    let item: ItemModel
     
     var body: some View {
         HStack {
-            Image(systemName: "checkmark.circle")
-            Text(title)
+            Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
+                .foregroundColor(item.isCompleted ? .green : .red)
+            Text(item.title)
             Spacer()
         }
+        .font(.title2)
+        .padding(.vertical, 9)
     }
 }
 
 struct TaskView_Previews: PreviewProvider {
+    
+    static var item1 = ItemModel(title: "Item", isCompleted: true)
+    static var item2 = ItemModel(title: "Item2", isCompleted: false)
+    
     static var previews: some View {
-        TaskView(title: "Задача!")
+        Group {
+            TaskView(item: item1)
+            TaskView(item: item2)
+        }
+        .previewLayout(.sizeThatFits)
     }
 }
