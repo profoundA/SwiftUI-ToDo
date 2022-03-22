@@ -11,7 +11,9 @@ import SwiftUI
 struct SwiftUI_ToDoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ListView()
+            }
         }
     }
 }
