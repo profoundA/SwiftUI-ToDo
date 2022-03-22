@@ -9,26 +9,35 @@ import SwiftUI
 
 struct ListView: View {
     
-    @State var items: [ItemModel] = [
-    ItemModel(title: "Задача", isCompleted: true)
-    ]
-    
-    @State var isEditting: Bool = false
+    @EnvironmentObject var listViewModel: ListViewModel
+    @State var isEditing = true
     
     var body: some View {
+        
         List {
-            ForEach(items) { item in
+            ForEach(listViewModel.items) { item in
                 TaskView(item: item)
+                    .onTapGesture {
+                        withAnimation(.easeIn(duration: 0.2)) {
+                            listViewModel.updateItem(item: item)
+                        }
+                    }
             }
+            .onDelete(perform: listViewModel.deleteItem)
+            .onMove(perform: listViewModel.moveItem)
         }
         .listStyle(.plain)
         .navigationTitle("Задачи📝")
+        .environment(\.editMode, .constant(isEditing ? EditMode.inactive : EditMode.active))
+        .animation(.easeIn, value: isEditing)
+        
+        
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
-                    self.isEditting.toggle()
+                    isEditing.toggle()
                 } label: {
-                    Text(isEditting ? "Готово" : "Изменить")
+                    Text(isEditing ? "Изменить" : "Готово")
                 }
 
             }
@@ -40,13 +49,11 @@ struct ListView: View {
         }
     }
 }
-
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ListView()
         }
+        .environmentObject(ListViewModel())
     }
 }
-
-
