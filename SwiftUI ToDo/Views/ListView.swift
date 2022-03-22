@@ -11,40 +11,53 @@ struct ListView: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
     @State var isEditing = true
+    @State var backgroundColor = Color(#colorLiteral(red: 0.949019134, green: 0.9490200877, blue: 0.9705254436, alpha: 1))
     
     var body: some View {
-        
-        List {
-            ForEach(listViewModel.items) { item in
-                TaskView(item: item)
-                    .onTapGesture {
-                        withAnimation(.easeIn(duration: 0.2)) {
-                            listViewModel.updateItem(item: item)
+        ZStack {
+            
+            VStack {
+                
+                if listViewModel.items.isEmpty {
+                    NoItemsView()
+                        .transition(AnyTransition.opacity.animation(.easeIn))
+                } else {
+                    
+                    List {
+                        ForEach(listViewModel.items) { item in
+                            TaskView(item: item)
+                                .onTapGesture {
+                                    withAnimation(.easeIn(duration: 0.2)) {
+                                        listViewModel.updateItem(item: item)
+                                    }
+                                }
+                            
                         }
+                        .onDelete(perform: listViewModel.deleteItem)
+                        .onMove(perform: listViewModel.moveItem)
                     }
+                    
+                    NavigationLink {
+                        AddView()
+                    } label: {
+                        AddButtonView()
+                    }
+                    .padding(.bottom, 40)
+                }
             }
-            .onDelete(perform: listViewModel.deleteItem)
-            .onMove(perform: listViewModel.moveItem)
+            .background(backgroundColor)
         }
-        .listStyle(.plain)
+        .listStyle(.insetGrouped)
         .navigationTitle("Задачи📝")
         .environment(\.editMode, .constant(isEditing ? EditMode.inactive : EditMode.active))
         .animation(.easeIn, value: isEditing)
         
         
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    isEditing.toggle()
-                } label: {
-                    Text(isEditing ? "Изменить" : "Готово")
-                }
-
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink("Добавить") {
-                   AddView()
-                }
+            Button {
+                isEditing.toggle()
+            } label: {
+                Text(isEditing ? "Изменить" : "Готово")
             }
         }
     }

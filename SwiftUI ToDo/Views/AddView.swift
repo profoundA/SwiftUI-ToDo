@@ -33,8 +33,8 @@ struct AddView: View {
                     Text("Добавить")
                         .foregroundColor(.white)
                         .font(.headline)
-                        .frame(height: 55)
-                        .frame(maxWidth: 170)
+                        .frame(height: 60)
+                        .frame(maxWidth: 200)
                         .background(Color.accentColor)
                         .cornerRadius(14)
                 }

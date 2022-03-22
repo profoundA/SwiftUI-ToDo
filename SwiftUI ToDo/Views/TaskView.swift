@@ -18,7 +18,7 @@ struct TaskView: View {
             Text(item.title)
             Spacer()
         }
-        .font(.title2)
+        .font(.body)
         .padding(.vertical, 9)
     }
 }
