@@ -15,12 +15,7 @@ class ListViewModel: ObservableObject {
         didSet { saveItems() }
     }
     
-    let backgroundColor = Color(#colorLiteral(red: 0.9607843137, green: 0.8784313725, blue: 0.7215686275, alpha: 1))
-    let listBackgroundColor = UIColor(#colorLiteral(red: 0.9607843137, green: 0.8784313725, blue: 0.7215686275, alpha: 1))
-    let itemColor = Color(#colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1))
-    
     let itemsKey = "items_list"
-    
     
     init() {
         getItems()
