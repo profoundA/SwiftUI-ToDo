@@ -14,6 +14,7 @@ struct TaskView: View {
     var body: some View {
         HStack {
             Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
+                .font(.title2)
                 .foregroundColor(item.isCompleted ? .green : .red)
             Text(item.title)
             Spacer()

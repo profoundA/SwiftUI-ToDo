@@ -12,38 +12,39 @@ struct AddView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var listViewModel: ListViewModel
     
-    @State var itemColor = Color(#colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1))
     @State var textFieldText: String = ""
-    
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                TextField("Напиши что-нибудь...", text: $textFieldText)
-                    .frame(height: 55)
-                    .padding(.horizontal)
-                    .background(itemColor)
-                    .cornerRadius(14)
-                
-                Button {
-                    saveButtonPressed()
-                } label: {
-                    Text("Добавить")
-                        .foregroundColor(.white)
-                        .font(.headline)
-                        .frame(height: 60)
-                        .frame(maxWidth: 200)
-                        .background(Color.accentColor)
+        ZStack {
+            ScrollView {
+                VStack(spacing: 20) {
+                    TextField("Напиши что-нибудь...", text: $textFieldText)
+                        .frame(height: 55)
+                        .padding(.horizontal)
+                        .background(Color("Item"))
                         .cornerRadius(14)
+                    
+                    Button {
+                        saveButtonPressed()
+                    } label: {
+                        Text("Добавить")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                            .frame(height: 60)
+                            .frame(maxWidth: 200)
+                            .background(Color.accentColor)
+                            .cornerRadius(14)
+                    }
+                    
                 }
-                
+                .padding(14)
             }
-            .padding(14)
+            .navigationTitle("Добавить Задачу")
+            .alert(isPresented: $showAlert, content: getAlert)
         }
-        .navigationTitle("Добавить Задачу")
-        .alert(isPresented: $showAlert, content: getAlert)
+        .background(Color("Background"))
     }
     
     func saveButtonPressed() {
@@ -72,6 +73,7 @@ struct AddView_Previews: PreviewProvider {
         NavigationView {
             AddView()
         }
+        .preferredColorScheme(.dark)
         .environmentObject(ListViewModel())
     }
 }

@@ -11,32 +11,28 @@ struct ListView: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
     @State var isEditing = true
-    @State var backgroundColor = Color(#colorLiteral(red: 0.949019134, green: 0.9490200877, blue: 0.9705254436, alpha: 1))
     
     var body: some View {
         ZStack {
-            
             VStack {
-                
                 if listViewModel.items.isEmpty {
                     NoItemsView()
-                        .transition(AnyTransition.opacity.animation(.easeIn))
+                        .transition(AnyTransition.opacity.animation(.easeIn(duration: 0.8)))
                 } else {
-                    
                     List {
                         ForEach(listViewModel.items) { item in
                             TaskView(item: item)
                                 .onTapGesture {
-                                    withAnimation(.easeIn(duration: 0.2)) {
+                                    withAnimation(.easeIn(duration: 0.05)) {
                                         listViewModel.updateItem(item: item)
                                     }
                                 }
-                            
                         }
                         .onDelete(perform: listViewModel.deleteItem)
                         .onMove(perform: listViewModel.moveItem)
+                        .listRowBackground(Color("Item"))
                     }
-                    
+
                     NavigationLink {
                         AddView()
                     } label: {
@@ -45,14 +41,16 @@ struct ListView: View {
                     .padding(.bottom, 40)
                 }
             }
-            .background(backgroundColor)
+            .background(Color("Background"))
         }
         .listStyle(.insetGrouped)
         .navigationTitle("Задачи📝")
         .environment(\.editMode, .constant(isEditing ? EditMode.inactive : EditMode.active))
         .animation(.easeIn, value: isEditing)
-        
-        
+        .onAppear {
+            UITableView.appearance().backgroundColor = UIColor(named: "Background")
+//            UINavigationBar.appearance().backgroundColor = UIColor(named: "Background")
+        }
         .toolbar {
             Button {
                 isEditing.toggle()
@@ -67,6 +65,8 @@ struct ListView_Previews: PreviewProvider {
         NavigationView {
             ListView()
         }
+        .preferredColorScheme(.dark)
         .environmentObject(ListViewModel())
+        .previewInterfaceOrientation(.portrait)
     }
 }

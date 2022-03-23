@@ -18,7 +18,7 @@ struct AddButtonView: View {
                 .frame(width: 60, height: 60)
             )
         }
-            .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 10)
+        .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 0)
     }
 }
 
