@@ -1,10 +1,10 @@
 # SwiftUI-ToDo
-Список задач на SwiftUI.
+## Список задач на SwiftUI.
 
-<img src="https://github.com/profoundA/SwiftUI-ToDo/blob/main/Resources/1.png" width="150" height="300" /> <img src="https://github.com/profoundA/SwiftUI-ToDo/blob/main/Resources/2.png" width="150" height="300" />
+<img src="https://github.com/profoundA/SwiftUI-ToDo/blob/main/Resources/1.png" width="170" height="340" /> <img src="https://github.com/profoundA/SwiftUI-ToDo/blob/main/Resources/2.png" width="170" height="340" /> <img src="https://github.com/profoundA/SwiftUI-ToDo/blob/main/Resources/3.png" width="170" height="340" /> <img src="https://github.com/profoundA/SwiftUI-ToDo/blob/main/Resources/4.png" width="170" height="340" /> <img src="https://github.com/profoundA/SwiftUI-ToDo/blob/main/Resources/5.png" width="170" height="340" /> <img src="https://github.com/profoundA/SwiftUI-ToDo/blob/main/Resources/6.png" width="170" height="340" />
 
-# Исполузется 
+# Содержит 
 - SwiftUI
 - MVVM
 - UserDefaults
-- Светлая и темная тема
+- Анимации
