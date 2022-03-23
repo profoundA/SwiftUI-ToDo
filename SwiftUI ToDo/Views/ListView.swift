@@ -49,7 +49,6 @@ struct ListView: View {
         .animation(.easeIn, value: isEditing)
         .onAppear {
             UITableView.appearance().backgroundColor = UIColor(named: "Background")
-//            UINavigationBar.appearance().backgroundColor = UIColor(named: "Background")
         }
         .toolbar {
             Button {
@@ -60,12 +59,12 @@ struct ListView: View {
         }
     }
 }
+
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ListView()
         }
-        .preferredColorScheme(.dark)
         .environmentObject(ListViewModel())
         .previewInterfaceOrientation(.portrait)
     }
