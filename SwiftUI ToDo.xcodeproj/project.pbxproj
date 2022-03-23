@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3246263A27EA7EB700AE6449 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3246263927EA7EB700AE6449 /* AddButtonView.swift */; };
+		3293FA9127EBA5A2002C4FBF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3293FA9327EBA5A2002C4FBF /* Localizable.strings */; };
 		32B2D27727E9F5C80073C870 /* SwiftUI_ToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B2D27627E9F5C80073C870 /* SwiftUI_ToDoApp.swift */; };
 		32B2D27B27E9F5CA0073C870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B2D27A27E9F5CA0073C870 /* Assets.xcassets */; };
 		32B2D27E27E9F5CA0073C870 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B2D27D27E9F5CA0073C870 /* Preview Assets.xcassets */; };
@@ -21,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		3246263927EA7EB700AE6449 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
+		3293FA9227EBA5A2002C4FBF /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		3293FA9427EBA5D2002C4FBF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		32B2D27327E9F5C80073C870 /* SwiftUI ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI ToDo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B2D27627E9F5C80073C870 /* SwiftUI_ToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ToDoApp.swift; sourceTree = "<group>"; };
 		32B2D27A27E9F5CA0073C870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		32B2D26A27E9F5C80073C870 = {
 			isa = PBXGroup;
 			children = (
+				3293FA9327EBA5A2002C4FBF /* Localizable.strings */,
 				32B2D27527E9F5C80073C870 /* SwiftUI ToDo */,
 				32B2D27427E9F5C80073C870 /* Products */,
 			);
@@ -150,6 +154,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"ru-RU",
 				Base,
 			);
 			mainGroup = 32B2D26A27E9F5C80073C870;
@@ -168,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B2D27E27E9F5CA0073C870 /* Preview Assets.xcassets in Resources */,
+				3293FA9127EBA5A2002C4FBF /* Localizable.strings in Resources */,
 				32B2D27B27E9F5CA0073C870 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +197,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3293FA9327EBA5A2002C4FBF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3293FA9227EBA5A2002C4FBF /* ru-RU */,
+				3293FA9427EBA5D2002C4FBF /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		32B2D27F27E9F5CA0073C870 /* Debug */ = {

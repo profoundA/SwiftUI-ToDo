@@ -32,7 +32,6 @@ struct ListView: View {
                         .onMove(perform: listViewModel.moveItem)
                         .listRowBackground(Color("Item"))
                     }
-
                     NavigationLink {
                         AddView()
                     } label: {
@@ -45,17 +44,18 @@ struct ListView: View {
         }
         .listStyle(.insetGrouped)
         .navigationTitle("Задачи📝")
-        .environment(\.editMode, .constant(isEditing ? EditMode.inactive : EditMode.active))
+        .environment(\.locale, .current)
         .animation(.easeIn, value: isEditing)
         .onAppear {
             UITableView.appearance().backgroundColor = UIColor(named: "Background")
         }
         .toolbar {
-            Button {
-                isEditing.toggle()
-            } label: {
-                Text(isEditing ? "Изменить" : "Готово")
-            }
+//            Button {
+//                isEditing.toggle()
+//            } label: {
+//                Text(isEditing ? "Изменить" : "Готово")
+//            }
+            EditButton()
         }
     }
 }
