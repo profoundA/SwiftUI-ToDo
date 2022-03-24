@@ -16,10 +16,8 @@ class ListViewModel: ObservableObject {
     }
     
     let itemsKey = "items_list"
-    let message = LocalizedStringKey("message")
     
     init() {
-        print(message)
         getItems()
     }
     
