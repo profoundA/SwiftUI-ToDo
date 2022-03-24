@@ -13,7 +13,6 @@ struct AddView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     
     @State var textFieldText: String = ""
-    @State var alertTitle: String = ""
     @State var showAlert: Bool = false
     
     var body: some View {
@@ -29,7 +28,7 @@ struct AddView: View {
                     Button {
                         saveButtonPressed()
                     } label: {
-                        Text("Добавить")
+                        Text(LocalizedStringKey("Добавить"))
                             .foregroundColor(.white)
                             .font(.headline)
                             .frame(height: 60)
@@ -43,8 +42,10 @@ struct AddView: View {
             }
             .navigationTitle("Добавить Задачу")
             .alert(isPresented: $showAlert, content: getAlert)
+
         }
         .background(Color("Background"))
+        .environment(\.locale, .current)
     }
     
     func saveButtonPressed() {
@@ -56,7 +57,6 @@ struct AddView: View {
     
     func textIsAppropriate() -> Bool {
         if textFieldText.count < 3 {
-            alertTitle = "Твоя задача должна содержать хотя бы 3 буквы 🙄"
             showAlert.toggle()
             return false
         }
@@ -64,7 +64,7 @@ struct AddView: View {
     }
     
     func getAlert() -> Alert  {
-        return Alert(title: Text(alertTitle))
+        return Alert(title: Text("alertMessage"))
     }
 }
 

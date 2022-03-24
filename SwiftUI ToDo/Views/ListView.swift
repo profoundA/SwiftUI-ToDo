@@ -50,11 +50,6 @@ struct ListView: View {
             UITableView.appearance().backgroundColor = UIColor(named: "Background")
         }
         .toolbar {
-//            Button {
-//                isEditing.toggle()
-//            } label: {
-//                Text(isEditing ? "Изменить" : "Готово")
-//            }
             EditButton()
         }
     }

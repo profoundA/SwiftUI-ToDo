@@ -15,10 +15,10 @@ struct NoItemsView: View {
     var body: some View {
             ScrollView {
                 VStack(spacing: 20) {
-                    Text("Задач нет☹️")
+                    Text(LocalizedStringKey("Задач нет☹️"))
                         .font(.title)
                         .fontWeight(.semibold)
-                    Text("Ты же продуктивный? Нажми на кнопку и добавь несколько!😉🤪😁")
+                    Text("productiveSpeech")
                         .padding(.bottom, 40)
                     NavigationLink(destination: AddView()) {
                         Text("КНОПКА 🥳")

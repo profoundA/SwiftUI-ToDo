@@ -4,6 +4,13 @@
 
   Created by Andrey Lobanov on 23.03.2022.
   
- "Delete" = "Delete"
 */
 
+"Задач нет☹️" = "No tasks yet☹️";
+"Добавить" = "Add";
+"Задачи📝" = "Tasks📝";
+"КНОПКА 🥳" = "BUTTON 🥳";
+"productiveSpeech" = "Are you productive? Press the button to add tasks😉🤪😁";
+"Добавить Задачу" = "Add Task";
+"Напиши что-нибудь..." = "Type something...";
+"alertMessage" = "Your task shoul be at least 3 characters long 🙄";
