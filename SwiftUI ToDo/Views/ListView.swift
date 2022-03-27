@@ -17,7 +17,7 @@ struct ListView: View {
             VStack {
                 if listViewModel.items.isEmpty {
                     NoItemsView()
-                        .transition(AnyTransition.opacity.animation(.easeIn(duration: 0.8)))
+                        .transition(.scale.animation(.spring(response: 0.8, dampingFraction: 0.7, blendDuration: 0.5)))
                 } else {
                     List {
                         ForEach(listViewModel.items) { item in

@@ -9,11 +9,12 @@ import SwiftUI
 
 struct AddView: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var viewDismiss
     @EnvironmentObject var listViewModel: ListViewModel
     
     @State var textFieldText: String = ""
     @State var showAlert: Bool = false
+    @FocusState var isFocused: Bool
     
     var body: some View {
         ZStack {
@@ -24,11 +25,12 @@ struct AddView: View {
                         .padding(.horizontal)
                         .background(Color("Item"))
                         .cornerRadius(14)
+                        .focused($isFocused)
                     
                     Button {
                         saveButtonPressed()
                     } label: {
-                        Text(LocalizedStringKey("Добавить"))
+                        Text("Добавить")
                             .foregroundColor(.white)
                             .font(.headline)
                             .frame(height: 60)
@@ -51,7 +53,7 @@ struct AddView: View {
     func saveButtonPressed() {
         if textIsAppropriate() {
             listViewModel.addItem(title: textFieldText)
-            presentationMode.wrappedValue.dismiss()
+            viewDismiss()
         }
     }
     
